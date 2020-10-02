@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  width: 240px;
+
+  &__icon {
+    cursor: pointer;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__date {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #948a8a;
+  }
+
+  &__speed,
+  &__distance,
+  &__time {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.875rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: black;
+  }
+
+  &__item {
+    color: #948a8a;
+    font-weight: 500;
+  }
+}

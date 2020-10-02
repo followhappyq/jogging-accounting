@@ -1,0 +1,32 @@
+$baby-purple: #e990f9;
+$white-two: #ffffff;
+.signin {
+  background-color: $baby-purple;
+  width: 503px;
+  height: 379px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 44px;
+  &__button {
+    padding: 20px 34px;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    border-radius: 36px;
+    outline: none;
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: 3px solid $white-two;
+    color: $white-two;
+    cursor: pointer;
+    transition: 0.5s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

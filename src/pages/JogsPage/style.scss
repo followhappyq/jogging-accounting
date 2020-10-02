@@ -1,0 +1,24 @@
+$white: #eaeaea;
+
+.jogs {
+  &__filter {
+    height: 60px;
+    width: 100%;
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    margin-top: 53px;
+  }
+
+  &__add {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    cursor: pointer;
+  }
+}
