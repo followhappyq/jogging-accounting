@@ -1,5 +1,9 @@
 .info {
   width: 100%;
+  height: calc(100% - 116px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &__title {
     color: #7ed321;
     font-size: 2rem;
@@ -8,7 +12,22 @@
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  &__description {
+    max-width: 614px;
+    margin-top: 15px;
+  }
+
+  &__subtitle {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    margin-bottom: 30px;
   }
 }

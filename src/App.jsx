@@ -5,6 +5,7 @@ import Header from "./components/HeaderComponent"
 import SignIn from "./pages/SignInPage"
 import Jogs from "./pages/JogsPage"
 import Info from "./pages/InfoPage"
+import NotFound from "./pages/NotFound"
 
 import "./style.scss"
 
@@ -16,6 +17,8 @@ const App = () => {
       <Switch>
         <Route exact path={["/signin"]} component={SignIn} />
         <Route exact path={["/info"]} component={Info} />
+        <Route exact path={["/"]} component={Jogs} />
+        <Route path="" component={NotFound} />
         <Route path="/" render={() => (isAuth ? <Jogs /> : <Redirect to="/signin" />)} />
       </Switch>
     </div>
