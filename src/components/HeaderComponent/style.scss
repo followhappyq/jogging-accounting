@@ -30,6 +30,9 @@
     color: #ffffff;
     text-transform: uppercase;
     cursor: pointer;
+    &--active {
+      border-bottom: 2px solid #ffffff;
+    }
     &:hover {
       border-bottom: 2px solid #ffffff;
     }

@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
+import { useSelector } from "react-redux"
 
 import { ReactComponent as AddIcon } from "./assets/add.svg"
 import JogsCard from "../../components/JogsCardComponent"
+import JogsPopup from "../../containers/JogsPopupContainer"
 import "./style.scss"
 
 function formatDate(date) {
@@ -17,23 +19,31 @@ function formatDate(date) {
 }
 
 const Jogs = () => {
-  const data = [{ date: formatDate(new Date()), speed: 16, time: 60, distance: 21 }]
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+
+  const jogs = useSelector(({ jogging }) => jogging.jogs)
+
+  console.log(jogs)
+
+  const handlerPopup = () => {
+    setIsPopupOpen((prevState) => !prevState)
+  }
 
   return (
     <div className="jogs">
       <div className="jogs__filter"></div>
       <ul className="jogs__list">
-        {data.map((item, index) => (
+        {jogs.map((item, index) => (
           <JogsCard
-            date={item.date}
-            speed={item.speed}
+            date={formatDate(item.date)}
             time={item.time}
             distance={item.distance}
             key={`${index}__${item.speed}`}
           />
         ))}
       </ul>
-      <AddIcon className="jogs__add" />
+      <AddIcon className="jogs__add" onClick={handlerPopup} />
+      {isPopupOpen && <JogsPopup handlerPopup={handlerPopup} />}
     </div>
   )
 }

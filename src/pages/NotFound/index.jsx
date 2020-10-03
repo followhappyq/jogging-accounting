@@ -11,7 +11,7 @@ const NotFound = () => {
       <div className="not-found__content">
         <SadIcon />
         <h3 className="not-found__title">Nothing is there</h3>
-        <Link to="/" className="not-found__link">
+        <Link to="/jogs" className="not-found__link">
           Create your jog first
         </Link>
       </div>
