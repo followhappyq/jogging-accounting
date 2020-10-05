@@ -13,7 +13,6 @@ const FilterComponent = ({ filterTo, filterFrom, onChangeFilterFrom, onChangeFil
           <DatePicker
             className="filter__date"
             dateFormat="dd.MM.yyyy"
-            withPortal
             selected={filterFrom}
             onChange={onChangeFilterFrom}
           />
@@ -23,7 +22,6 @@ const FilterComponent = ({ filterTo, filterFrom, onChangeFilterFrom, onChangeFil
           <DatePicker
             className="filter__date"
             dateFormat="dd.MM.yyyy"
-            withPortal
             selected={filterTo}
             onChange={onChangeFilterTo}
           />
