@@ -11,7 +11,7 @@ const filter = (state = initialState, action) => {
     case types.FILTER_TO:
       return {
         ...state,
-        filterTo: action.payload,
+        filterTo: action.payload + 24 * 60 * 60 * 1000,
       }
     case types.FILTER_FROM:
       return {
