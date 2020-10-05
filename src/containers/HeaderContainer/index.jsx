@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useLocation } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 
@@ -10,9 +10,15 @@ const HeaderContainer = () => {
   const isFilterActive = useSelector(({ filter }) => filter.isFilterActive)
   const dispatch = useDispatch()
   const location = useLocation()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const onClickFilter = () => {
     dispatch(setIsFilterActive(!isFilterActive))
+  }
+
+  const onMobileMenuOpen = () => {
+    setIsMobileMenuOpen((prevState) => !prevState)
+    console.log(1)
   }
 
   return (
@@ -21,6 +27,8 @@ const HeaderContainer = () => {
       currentPage={location.pathname}
       onClickFilter={onClickFilter}
       isFilterActive={isFilterActive}
+      isMobileMenuOpen={isMobileMenuOpen}
+      onMobileMenuOpen={onMobileMenuOpen}
     />
   )
 }

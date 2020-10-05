@@ -9,6 +9,16 @@ $white-two: #ffffff;
   align-items: center;
   justify-content: space-around;
   border-radius: 44px;
+  @media screen and (max-width: 440px) {
+    background-color: $white-two;
+    &__logo {
+      svg {
+        path {
+          fill: $baby-purple;
+        }
+      }
+    }
+  }
   &__button {
     padding: 20px 34px;
     font-size: 18px;
@@ -27,6 +37,10 @@ $white-two: #ffffff;
     transition: 0.5s ease;
     &:hover {
       transform: scale(1.05);
+    }
+    @media screen and (max-width: 440px) {
+      color: $baby-purple;
+      border: 3px solid $baby-purple;
     }
   }
 }

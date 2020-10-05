@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   &__title {
     color: #7ed321;
     font-size: 2rem;
@@ -13,11 +14,26 @@
     line-height: normal;
     letter-spacing: normal;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    @media screen and (max-width: 440px) {
+      width: 80%;
+    }
+  }
+
+  &__content {
+    @media screen and (max-width: 440px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__description {
     max-width: 614px;
     margin-top: 15px;
+    @media screen and (max-width: 440px) {
+      max-width: 80%;
+    }
   }
 
   &__subtitle {

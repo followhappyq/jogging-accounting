@@ -8,6 +8,9 @@
   height: 380px;
   right: 0;
   top: 30%;
+  @media screen and (max-width: 440px) {
+    width: 80%;
+  }
 }
 
 .jogs-popup {
@@ -23,12 +26,19 @@
 
   &__form {
     width: 326px;
+    @media screen and (max-width: 440px) {
+      width: 80%;
+    }
   }
   &__field {
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 440px) {
+      flex-direction: column;
+    }
     input {
       height: 31px;
       width: 236px;
@@ -42,6 +52,11 @@
       line-height: normal;
       letter-spacing: normal;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      @media screen and (max-width: 440px) {
+        width: 100%;
+        display: flex;
+        margin-bottom: 5px;
+      }
     }
   }
   &__save {
@@ -56,7 +71,8 @@
     border-radius: 44px;
     border: 2px solid #ffffff;
     color: #ffffff;
-    padding: 14px 145px;
+    padding: 14px 0px;
+    width: 100%;
     outline: none;
     cursor: pointer;
     margin-top: 46px;

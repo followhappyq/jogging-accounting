@@ -18,6 +18,12 @@
   align-items: center;
   margin-right: 30px;
 
+  @media screen and (max-width: 440px) {
+    justify-content: space-around;
+    margin-right: 0;
+    width: 150px;
+  }
+
   &__item {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 14px;
@@ -39,6 +45,24 @@
     &:last-child {
       &:hover {
         border-bottom: none;
+      }
+    }
+
+    &--desktop {
+      @media screen and (max-width: 440px) {
+        display: none;
+      }
+    }
+
+    &--filter {
+      @media screen and (max-width: 440px) {
+      }
+    }
+
+    &--mobile {
+      display: none;
+      @media screen and (max-width: 440px) {
+        display: flex;
       }
     }
   }

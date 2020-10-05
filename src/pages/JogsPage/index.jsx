@@ -75,7 +75,7 @@ const Jogs = () => {
           })}
         </ul>
       )}
-      {!isPopupOpen && <AddIcon className="jogs__add" onClick={handlerPopup} />}
+      {!isPopupOpen && !isEditPopupOpen && <AddIcon className="jogs__add" onClick={handlerPopup} />}
       {isPopupOpen && <JogsPopup handlerPopup={handlerPopup} />}
       {isEditPopupOpen && <EditPopup handlerPopup={handlerEditPopup} jogs={jogs} />}
     </div>
