@@ -3,7 +3,7 @@ import { types } from "../actions/constant"
 const initialState = {
   token: window.localStorage.token,
   isAuth: !!window.localStorage.token,
-  user_id: "",
+  userId: "",
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -21,7 +21,12 @@ export default (state = initialState, { type, payload }) => {
     case types.FETCH_USER_ID:
       return {
         ...state,
-        user_id: payload,
+        userId: payload,
+      }
+    case types.SET_USER_ID:
+      return {
+        ...state,
+        userId: payload,
       }
     default:
       return state

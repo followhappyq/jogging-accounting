@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 
-import { addJogs } from "../../redux/actions/login"
+import { addJogs } from "../../redux/actions/jogging"
 import JogsPopup from "../../components/JogsPopupComponent"
 
 const JogsPopupContainer = ({ handlerPopup }) => {
@@ -31,10 +31,9 @@ const JogsPopupContainer = ({ handlerPopup }) => {
   const onSubmit = (e) => {
     e.preventDefault()
     const data = {
-      id: new Date().getTime(),
       time: time,
       distance: distance,
-      date: date.toString(),
+      date: new Date(date),
     }
     dispatch(addJogs(data))
     handlerPopup()

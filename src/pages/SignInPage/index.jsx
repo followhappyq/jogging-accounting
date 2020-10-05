@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
-import { fetchToken, fetchUserInfo } from "../../redux/actions/login"
+import { fetchToken } from "../../redux/actions/login"
 import SignIn from "../../components/SignInComponent"
 import "./style.scss"
 
@@ -19,7 +19,6 @@ const SignInPage = () => {
 
   const onClickLogin = () => {
     dispatch(fetchToken())
-    dispatch(fetchUserInfo())
   }
 
   return (

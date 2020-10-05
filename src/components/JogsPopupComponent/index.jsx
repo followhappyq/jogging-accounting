@@ -5,11 +5,21 @@ import "react-datepicker/dist/react-datepicker.css"
 import { ReactComponent as CloseIcon } from "./assets/cancel.svg"
 import "./style.scss"
 
-const JogsPopup = ({ handlerPopup, date, onChangeDate, onDistanceChange, onTimeChange, time, distance, onSubmit }) => {
+const JogsPopup = ({
+  handlerPopup,
+  date,
+  onChangeDate,
+  onDistanceChange,
+  onTimeChange,
+  time,
+  distance,
+  onSubmit,
+  id,
+}) => {
   return (
     <div className="wrapper">
       <div className="jogs-popup">
-        <CloseIcon className="jogs-popup__close" onClick={handlerPopup} />
+        <CloseIcon className="jogs-popup__close" onClick={handlerPopup.bind(null, id)} />
         <form className="jogs-popup__form" onSubmit={onSubmit}>
           <label className="jogs-popup__field">
             <span>Distance</span>

@@ -25,17 +25,41 @@ export const fetchJogs = () => (dispatch) => {
     })
 }
 
-export const editJogs = (data) => {
-  console.log(data)
+export const editJogs = (data, dataToRedux) => (dispatch) => {
   axios
     .put("https://jogtracker.herokuapp.com/api/v1/data/jog", data, {
       headers: { Authorization: `Bearer ${window.localStorage.getItem("token")}` },
     })
-    .catch((res) => {})
+    .then(() => {
+      dispatch(editJogsInStore(dataToRedux))
+    })
+    .catch((res) => {
+      //err
+    })
   return {
     type: types.EDIT_JOGS,
     payload: data,
   }
+}
+
+export const addJogs = (data) => (dispatch) => {
+  axios
+    .post("https://jogtracker.herokuapp.com/api/v1/data/jog", data, {
+      headers: { Authorization: `Bearer ${window.localStorage.getItem("token")}` },
+    })
+    .then((res) => {
+      const data = {
+        id: res.data.response.id,
+        time: res.data.response.time,
+        distance: res.data.response.distance,
+        userId: res.data.response.user_id,
+        date: new Date(res.data.response.date).getTime(),
+      }
+      dispatch(addJogsToStore(data))
+    })
+    .catch((res) => {
+      //err
+    })
 }
 
 export const setJogs = (jogs) => ({
@@ -43,7 +67,17 @@ export const setJogs = (jogs) => ({
   payload: jogs,
 })
 
+export const addJogsToStore = (jogs) => ({
+  type: types.ADD_JOGS,
+  payload: jogs,
+})
+
 export const editJogsId = (id) => ({
-  type: types.EDIT_JOGS,
+  type: types.EDIT_JOGS_ID,
   payload: id,
+})
+
+export const editJogsInStore = (data) => ({
+  type: types.EDIT_JOG_IN_STORE,
+  payload: data,
 })

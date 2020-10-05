@@ -10,6 +10,7 @@ const JogsEditContainer = ({ handlerPopup, jogs }) => {
   const [distance, setDistance] = useState(0)
 
   const jogsId = useSelector(({ jogging }) => jogging.id)
+  const userId = useSelector(({ login }) => login.userId)
   const dispatch = useDispatch()
 
   const onChangeDate = (date) => {
@@ -42,9 +43,18 @@ const JogsEditContainer = ({ handlerPopup, jogs }) => {
       time: time,
       distance: distance,
       date: new Date(date),
-      user_id: 3,
+      user_id: userId,
     }
-    dispatch(editJogs(data))
+
+    const dataToRedux = {
+      id: jogsId,
+      time: time,
+      distance: distance,
+      date: new Date(date),
+      user_id: userId,
+    }
+
+    dispatch(editJogs(data, dataToRedux))
     handlerPopup()
   }
 

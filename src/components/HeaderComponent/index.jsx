@@ -3,7 +3,8 @@ import { Link } from "react-router-dom"
 import classNames from "classnames"
 
 import { ReactComponent as LogoIcon } from "./assets/logo.svg"
-import { ReactComponent as FilterIcon } from "./assets/filter-active.svg"
+import { ReactComponent as FilterActiveIcon } from "./assets/filter-active.svg"
+import { ReactComponent as FilterIcon } from "./assets/filter.svg"
 import "./style.scss"
 
 const menu = [
@@ -12,7 +13,7 @@ const menu = [
   { link: "contact us", path: "/contact-us" },
 ]
 
-const HeaderComponent = ({ isAuth, currentPage }) => {
+const HeaderComponent = ({ isAuth, currentPage, isFilterActive, onClickFilter }) => {
   return (
     <header className="header">
       <div className="header__logo">
@@ -28,8 +29,8 @@ const HeaderComponent = ({ isAuth, currentPage }) => {
               <Link to={item.path}>{item.link}</Link>
             </li>
           ))}
-          <li className="menu__item">
-            <FilterIcon />
+          <li className="menu__item" onClick={onClickFilter}>
+            {isFilterActive ? <FilterActiveIcon /> : <FilterIcon />}
           </li>
         </ul>
       )}
