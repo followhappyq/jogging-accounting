@@ -1,20 +1,27 @@
-import React, { useState } from "react"
-import { useDispatch } from "react-redux"
+import React, { useState, useEffect, useCallback } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
-import { addJogs } from "../../redux/actions/login"
-import JogsPopup from "../../components/JogsPopupComponent"
+import { editJogs } from "../../redux/actions/jogging"
+import JogsPopupComponent from "../../components/JogsPopupComponent"
 
-const JogsPopupContainer = ({ handlerPopup }) => {
+const JogsEditContainer = ({ handlerPopup, jogs }) => {
   const [date, setDate] = useState(new Date())
   const [time, setTime] = useState(0)
   const [distance, setDistance] = useState(0)
 
+  const jogsId = useSelector(({ jogging }) => jogging.id)
   const dispatch = useDispatch()
 
   const onChangeDate = (date) => {
     setDate(date)
-    console.log(date)
   }
+
+  const onJogsIdChange = useCallback(() => {
+    const currentJog = jogs.filter((item) => item.id === jogsId)
+    setTime(currentJog[0].time)
+    setDistance(currentJog[0].distance)
+    setDate(new Date(currentJog[0].date).getTime())
+  }, [jogs, jogsId])
 
   const onTimeChange = (e) => {
     if (e.target.value >= 0) {
@@ -31,17 +38,22 @@ const JogsPopupContainer = ({ handlerPopup }) => {
   const onSubmit = (e) => {
     e.preventDefault()
     const data = {
-      id: new Date().getTime(),
+      jog_id: jogsId,
       time: time,
       distance: distance,
-      date: date.toString(),
+      date: new Date(date),
+      user_id: 3,
     }
-    dispatch(addJogs(data))
+    dispatch(editJogs(data))
     handlerPopup()
   }
 
+  useEffect(() => {
+    onJogsIdChange()
+  }, [jogsId, onJogsIdChange])
+
   return (
-    <JogsPopup
+    <JogsPopupComponent
       handlerPopup={handlerPopup}
       date={date}
       onChangeDate={onChangeDate}
@@ -54,4 +66,4 @@ const JogsPopupContainer = ({ handlerPopup }) => {
   )
 }
 
-export default JogsPopupContainer
+export default JogsEditContainer

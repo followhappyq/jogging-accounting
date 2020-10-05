@@ -1,8 +1,8 @@
 import { types } from "../actions/constant"
 
 const initialState = {
-  items: [],
   jogs: [],
+  id: "",
 }
 
 const jogging = (state = initialState, action) => {
@@ -17,6 +17,18 @@ const jogging = (state = initialState, action) => {
       return {
         ...state,
         jogs: [...state.jogs, action.payload],
+      }
+
+    case types.SET_JOGS:
+      return {
+        ...state,
+        jogs: action.payload,
+      }
+
+    case types.EDIT_JOGS:
+      return {
+        ...state,
+        id: action.payload,
       }
 
     default:
